@@ -33,10 +33,10 @@ eg: `DB_URI='mongodb+srv://username:password@cluster/myFirstDatabase?retryWrites
 eg: `curl -d '{"name":"John Smith", "birthdate":"1970-01-01", "timezone":"America/Los_Angeles"}' -H "Content-Type: application/json" -X POST http://localhost:8000/api/person`
 
 * To view all people in the database make a GET call to the /api/people endpoint:
-eg: `curl -H "Content-Type: application/json" -X POST http://localhost:8000/api/people`
+eg: `curl -H "Content-Type: application/json" -X GET http://localhost:8000/api/people`
 
 * You can also specify a date for the interval when getting all people:
-eg: `curl -d '{"date":"2050-01-01"}' -H "Content-Type: application/json" -X POST http://localhost:8000/api/people`
+eg: `curl -d '{"date":"2050-01-01"}' -H "Content-Type: application/json" -X GET http://localhost:8000/api/people`
 
 * To run unit tests run:
 `vendor/bin/phpunit`
