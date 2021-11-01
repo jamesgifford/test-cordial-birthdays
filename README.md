@@ -44,7 +44,7 @@ eg: `curl -H "Content-Type: application/json" -X GET http://localhost:8000/api/p
 * You can also specify a date for the interval when getting a single person record:
 eg: `curl -d '{"date":"2050-01-01"}' -H "Content-Type: application/json" -X GET http://localhost:8000/api/person/617a4878bf668d0e5e6da923`
 
-* To delete a person record from the database make a DELETE call to the /api/person endpoint and provide the id of the user:
+* To delete a person record from the database make a DELETE call to the /api/person/{person} endpoint and provide the id of the user:
 eg: `curl -H "Content-Type: application/json" -X DELETE http://localhost:8000/api/person/617a4878bf668d0e5e6da923`
 
 * To run unit tests run:
