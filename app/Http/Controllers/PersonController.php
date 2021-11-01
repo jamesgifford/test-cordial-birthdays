@@ -53,7 +53,6 @@ class PersonController extends Controller
             $person->save();
         }
 
-        //dd($person->interval['y']);
         return response()->json($person);
     }
 
