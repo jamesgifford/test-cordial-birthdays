@@ -40,7 +40,7 @@ class PersonController extends Controller
      * @var \App\Models\Person
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show (Request $request, Person $person)
+    public function show(Request $request, Person $person)
     {
         $validated = $this->validate($request, [
             'date' => 'nullable|date',

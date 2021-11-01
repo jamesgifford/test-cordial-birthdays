@@ -39,7 +39,9 @@ class CreatePersonTest extends TestCase
                 'timezone' => 'America/Los_Angeles',
             ]);
 
-        $this->seeInDatabase('people', ['name' => 'John Jacob Jingle-Heimer Smith']);
+        $this->seeInDatabase('people', [
+            'name' => 'John Jacob Jingle-Heimer Smith',
+        ]);
     }
 
     /**
