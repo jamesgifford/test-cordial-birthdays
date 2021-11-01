@@ -18,6 +18,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('person/{person}', ['uses' => 'personController@show']);
     $router->post('person', ['uses' => 'personController@create']);
     $router->get('people', ['uses' => 'personController@index']);
 });

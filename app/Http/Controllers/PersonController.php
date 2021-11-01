@@ -34,6 +34,17 @@ class PersonController extends Controller
     }
 
     /**
+     * Get a single person
+     *
+     * @var \App\Models\Person
+     * @return void
+     */
+    public function show (Person $person)
+    {
+        return response()->json($person);
+    }
+
+    /**
      * Add a new person record to the database.
      *
      * @var Request the HTTP request
