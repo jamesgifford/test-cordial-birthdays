@@ -36,11 +36,24 @@ class PersonController extends Controller
     /**
      * Get a single person
      *
+     * @var \Illuminate\Http\Request
      * @var \App\Models\Person
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show (Person $person)
+    public function show (Request $request, Person $person)
     {
+        $validated = $this->validate($request, [
+            'date' => 'nullable|date',
+        ]);
+
+        if ($request->date) {
+            $date = Carbon::parse($validated['date']);
+
+            $person->interval = $date;
+            $person->save();
+        }
+
+        //dd($person->interval['y']);
         return response()->json($person);
     }
 
