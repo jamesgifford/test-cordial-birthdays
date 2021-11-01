@@ -80,7 +80,7 @@ class Person extends Model implements AuthenticatableContract, AuthorizableContr
      */
     public function getIntervalAttribute()
     {
-        return $this->getInterval(Carbon::now()->timezone($this->timezone));
+        return $this->interval ?? $this->getInterval(Carbon::now()->timezone($this->timezone));
     }
 
     /**
