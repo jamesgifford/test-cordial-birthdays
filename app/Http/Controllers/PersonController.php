@@ -11,8 +11,8 @@ class PersonController extends Controller
     /**
      * List all people in the database.
      *
-     * @var Request the HTTP request
-     * @return void
+     * @var \Illuminate\Http\Request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
     {
@@ -37,7 +37,7 @@ class PersonController extends Controller
      * Get a single person
      *
      * @var \App\Models\Person
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show (Person $person)
     {
@@ -47,8 +47,8 @@ class PersonController extends Controller
     /**
      * Add a new person record to the database.
      *
-     * @var Request the HTTP request
-     * @return void
+     * @var \Illuminate\Http\Request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function create(Request $request)
     {
@@ -61,5 +61,18 @@ class PersonController extends Controller
         $person = Person::create($request->all());
 
         return response()->json($person, 201);
+    }
+
+    /**
+     * Delete a single person record from the database.
+     *
+     * @var \App\Models\Person
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy (Person $person)
+    {
+        $person->delete();
+
+        return response()->json(null, 204);
     }
 }

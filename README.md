@@ -35,11 +35,14 @@ eg: `curl -d '{"name":"John Smith", "birthdate":"1970-01-01", "timezone":"Americ
 * To view all people in the database make a GET call to the /api/people endpoint:
 eg: `curl -H "Content-Type: application/json" -X GET http://localhost:8000/api/people`
 
+* You can also specify a date for the interval when getting all people:
+eg: `curl -d '{"date":"2050-01-01"}' -H "Content-Type: application/json" -X GET http://localhost:8000/api/people`
+
 * To view a single person record from the database make a GET call to the /api/person endpoint and provide the id of the user:
 eg: `curl -H "Content-Type: application/json" -X GET http://localhost:8000/api/person/617a4878bf668d0e5e6da923`
 
-* You can also specify a date for the interval when getting all people:
-eg: `curl -d '{"date":"2050-01-01"}' -H "Content-Type: application/json" -X GET http://localhost:8000/api/people`
+* To delete a person record from the database make a DELETE call to the /api/person endpoint and provide the id of the user:
+eg: `curl -H "Content-Type: application/json" -X DELETE http://localhost:8000/api/person/617a4878bf668d0e5e6da923`
 
 * To run unit tests run:
 `vendor/bin/phpunit`
