@@ -7,7 +7,7 @@ use Laravel\Lumen\Testing\DatabaseTransactions;
 class GetPeopleTest extends TestCase
 {
     /**
-     * Create all people in the database.
+     * Get all people in the database.
      *
      * @return void
      */
@@ -34,7 +34,7 @@ class GetPeopleTest extends TestCase
     }
 
     /**
-     * Create all people in the database using a valid date for the interval.
+     * Get all people in the database using a valid date for the interval.
      *
      * @return void
      */
@@ -47,11 +47,25 @@ class GetPeopleTest extends TestCase
         $response = $this->call('GET', 'http://localhost:8000/api/people',
             $data, ['Content-Type' => 'application/json']);
 
-        $response->assertStatus(200);
+        $response
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                [
+                    'name',
+                    'birthdate',
+                    'timezone',
+                    'interval' => [
+                        'y', 'm', 'd', 'h', 'i', 's'
+                    ],
+                    'isBirthday',
+                    'age',
+                    'message'
+                ]
+            ]);
     }
 
     /**
-     * Create all people in the database using an invalid date for the interval.
+     * Get all people in the database using an invalid date for the interval.
      *
      * @return void
      */
